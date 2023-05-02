@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const APP_SECRET = require("../utils");
+const { APP_SECRET } = require("../utils");
 
 // ユーザーの新規登録のリゾルバ
 async function signup(parent, args, context) {
@@ -37,15 +37,15 @@ async function login(parent, args, context) {
 
     // パスワードの比較
     const valid = await bcrypt.compare(args.password, user.password);
-    if (!vaild) {
+    if (!valid) {
         throw new Error("メールアドレスもしくはパスワードが間違っています");
     }
 
     const token = jwt.sign({ userId: user.id }, APP_SECRET);
 
     return {
-        user,
         token,
+        user,
     };
 }
 

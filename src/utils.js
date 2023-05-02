@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-APP_SECRET = "GraphQL"; // 本当はランダムな文字列にしておいた方がいい
+APP_SECRET = "GraphQL-is-aw3some"; // 本当はランダムな文字列にしておいた方がいい
 
 // トークンを復号する関数
 function getTokenPayload(token) {
