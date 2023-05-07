@@ -3,7 +3,7 @@
 function postedBy(parent, args, context) {
     return context.prisma.link
         .findUnique({
-            whre: { id: parent.id },
+            where: { id: parent.id },
         })
         .postedBy();
 }
